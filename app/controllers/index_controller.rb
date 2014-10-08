@@ -1,7 +1,7 @@
 class IndexController < ApplicationController
 
   def index
-    @vendors = Vendors.all
+    @vendors = Vendor.all
   end
 
   def new
