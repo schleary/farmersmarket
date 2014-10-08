@@ -13,7 +13,7 @@ class IndexController < ApplicationController
     if @vendor.save
       redirect_to root_path
     else
-
+      render :new
     end
   end
 
