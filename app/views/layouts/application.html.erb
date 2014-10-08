@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Farmers Market</title>
+  <title>Farmers Market Registry</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <h1>Farmers' Market Registry</h1>
 
-<form action="" method="get" accept-charset="utf-8">
-  <label for="fname"> Vendor </label>
-  <input type="text" name="vendor_name" value="" id="name">
-  <input type="text" name="employees" value="" id="employees">
-  <input type="text" name="market_id" value="" id="market_id">
-  <p><input type="submit" value="Submit"></p>
-</form>
 
 <%= yield %>
 

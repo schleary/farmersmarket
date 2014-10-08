@@ -9,7 +9,7 @@ class IndexController < ApplicationController
   end
 
   def create
-    @vendor = Vendor.new(params.require(:vendor).permit(:name, :employees, :market_id))
+    @vendor = Vendor.new(params.require(:vendor).permit(:vendor_name, :employees, :market_id))
     if @vendor.save
       redirect_to root_path
     else
