@@ -2,11 +2,11 @@
 <p>Please update vendor inforamtion in below form:</p>
 <form action="/controllers/index_controller" method="POST" accept-charset="utf-8">
   <input type=“hidden” name=“_method” value=“PUT”>
-  <label for="name"> Vendor Name </label><input type="text" name="vendor[name]" value="" ><br />
-  <label for="employees"> Employees </label><input type="text" name="vendor[employees]" value="" ><br />
-  <label for="market_id"> Market ID </label><input type="text" name="vendor[market_id]" value="" ><br />
+  <label for="vname"> Vendor Name </label><input type="text" name="vendor_name" value= "<% @vendor.vname %>" ><br />
+  <label for="vemployees"> Employees </label><input type="text" name="employees" value="<% @vendor.vemployees %>" ><br />
+  <label for="vmarketid"> Market ID </label><input type="text" name="market_id" value="<% @vendor.vmarketid %>" ><br />
   <p><input type="submit" value="Update"></p>
 </form>
 
 
-<%= link_to 'Delete', @vendor, method: :delete %>
+*Vendor delete profile goes here*

@@ -4,14 +4,26 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
 
+  #index.html.erb:
   get "/",    to: 'index#index'
   # get "/vendor-tools",    to: "index#create"
 
   get "/vendor-tools", to: "vendors#vendor_tools"
   post "/vendor-tools",   to: "vendors#create"
-  delete "/vendor/:id",  to: "vendors#destroy"
 
-  get "/form-vendor-update", to: "vendors#form_vendor_update"
+
+  #vendor_tools.html.erb:
+  get "/form-vendor-update", to: "vendors#vendor_profile_settings"
+  post "/form-market", to: "markets#create"
+  post "/form-market", to: "markets#edit"
+  get "/form-product", to: "products#show"
+  post "#", to: "sales#create"
+  post "#", to: "sales#edit"
+  get "/vendor/:id",  to: "vendors#destroy"
+
+  
+
+  post "/vendor-tools", to: "vendors#form_vendor_update"
   get "/form-market", to: "markets#edit"  #change hers
   get "/form-product", to: "vendors#product-settings"
 

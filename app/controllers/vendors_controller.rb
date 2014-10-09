@@ -4,6 +4,7 @@ class VendorsController < ApplicationController
     end
 
     def form_vendor_update
+      #update stuff
     end
 
     def edit_market
