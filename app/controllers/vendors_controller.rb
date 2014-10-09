@@ -3,7 +3,7 @@ class VendorsController < ApplicationController
     def vendor_tools
     end
 
-    def vendor_profile_settings
+    def form_vendor_update
     end
 
     def edit_market

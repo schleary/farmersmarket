@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post "/vendor-tools",   to: "vendors#create"
   delete "/vendor/:id",  to: "vendors#destroy"
 
-  get "/form-vendor-update", to: "vendors#vendor-profile-settings"
+  get "/form-vendor-update", to: "vendors#form_vendor_update"
   get "/form-market", to: "markets#edit"  #change hers
   get "/form-product", to: "vendors#product-settings"
 
