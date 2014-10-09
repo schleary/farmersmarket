@@ -1,7 +1,15 @@
 class VendorsController < ApplicationController
 
     def vendor_tools
+    end
 
+    def vendor_profile_settings
+    end
+
+    def edit_market
+    end
+
+    def product_settings
     end
 
     def new
@@ -28,9 +36,9 @@ class VendorsController < ApplicationController
     #   add_column :name, :employees, :market_id
     # end
     #
-    # def show
-    #   @vendor = Vendor.find(session[:vendor_id])
-    # end
+    def show
+      @vendor = Vendor.find(session[:id])
+    end
 
     def edit
       find_vendor
