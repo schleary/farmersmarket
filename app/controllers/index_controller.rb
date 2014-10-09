@@ -9,14 +9,15 @@ class IndexController < ApplicationController
   end
 
   def create
-    @vendor = Vendor.new(params.require(:vendor).permit(:vendor_name, :employees, :market_id))
+    @vendor = Vendor.new(post_params)
     if @vendor.save
       # session[:vendor_id] = @vendor.id
-      redirect_to root_path
+      redirect_to "/vendor-tools"
     else
       render :new
     end
   end
+
   #
   # def change
   #   add_column :name, :employees, :market_id
@@ -25,5 +26,29 @@ class IndexController < ApplicationController
   # def show
   #   @vendor = Vendor.find(session[:vendor_id])
   # end
+
+  def edit
+    find_vendor
+  end
+
+  def update
+    find_vendor
+    if @vendor.update(post_params)
+      redirect_to "/vendor-tools"
+    else
+      render :edit
+    end
+  end
+
+  private
+
+  def find_vendor
+    @vendor = Vendor.find(params[:id])
+  end
+
+  def post_params
+    params.require(:vendor).permit(:name, :employees, :market_id)
+  end
+
 
 end
