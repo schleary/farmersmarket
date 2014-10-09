@@ -10,6 +10,14 @@ Rails.application.routes.draw do
   get "/vendor-tools", to: "vendors#vendor_tools"
   post "/vendor-tools",   to: "vendors#create"
 
+  get "/form-vendor-update", to: "vendors#vendor-profile-settings"
+  get "/form-market", to: "markets#edit"  #change hers
+  get "/form-product", to: "vendors#product-settings"
+
+  # THIS IS NOT AN ACCEPTABLE NAME
+  get "#", to: "sales#edit"   #change hers
+
+
 
 
   #

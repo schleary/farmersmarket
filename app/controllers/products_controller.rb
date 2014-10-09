@@ -1,24 +1,14 @@
-class VendorsController < ApplicationController
+class ProductsController < ApplicationController
 
-    def vendor_tools
-    end
 
-    def vendor_profile_settings
-    end
-
-    def edit_market
-    end
-
-    def product_settings
-    end
 
     def new
-      @vendor = Vendor.new
+      @product = Product.new
     end
 
     def create
-      @vendor = Vendor.new(post_params)
-      if @vendor.save
+      @product = Product.new(post_params)
+      if @product.save
         # session[:vendor_id] = @vendor.id
         redirect_to "/vendor-tools"
       else
@@ -32,16 +22,16 @@ class VendorsController < ApplicationController
     # end
     #
     def show
-      @vendor = Vendor.find(session[:id])
+      @product = Product.find(session[:id])
     end
 
     def edit
-      find_vendor
+      find_product
     end
 
     def update
-      find_vendor
-      if @vendor.update(post_params)
+      find_product
+      if @product.update(post_params)
         redirect_to "/vendor-tools"
       else
         render :edit
@@ -50,8 +40,8 @@ class VendorsController < ApplicationController
 
     private
 
-    def find_vendor
-      @vendor = Vendor.find(params[:id])
+    def find_product
+      @product = Product.find(params[:id])
     end
 
     def post_params
