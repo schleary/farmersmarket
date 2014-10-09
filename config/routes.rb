@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get "/vendor-tools", to: "vendors#vendor_tools"
   post "/vendor-tools",   to: "vendors#create"
+  delete "/vendor/:id",  to: "vendors#destroy"
 
 
 

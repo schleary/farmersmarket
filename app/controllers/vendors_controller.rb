@@ -18,6 +18,11 @@ class VendorsController < ApplicationController
       end
     end
 
+    def destroy
+        @vendor = Vendor.find(params[:id])
+        @vendor.destroy
+    end
+
     #
     # def change
     #   add_column :name, :employees, :market_id
