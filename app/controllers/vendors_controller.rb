@@ -9,6 +9,7 @@ class VendorsController < ApplicationController
     end
 
     def form_vendor_update
+      @vendor = Vendor.find(params[:id])
     end
 
     def edit_market

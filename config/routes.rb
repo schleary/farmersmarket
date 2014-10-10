@@ -19,9 +19,11 @@ Rails.application.routes.draw do
 
 
   #form-vendor-update.html.erb
-  # post "/vendor-tools/:id", to: "vendors#update"
+  post "/vendor-tools/:id", to: "vendors#vendor_tools"
   delete "/vendor/:id",  to: "vendors#destroy"
 
+
+  #
 
 
 

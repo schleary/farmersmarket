@@ -1,5 +1,11 @@
 class MarketsController < ApplicationController
 
+
+  def form_market
+  
+  end
+
+
   def new
     @market = Market.new
   end
