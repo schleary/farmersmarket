@@ -6,10 +6,24 @@ class ProductsController < ApplicationController
       @product = Product.new
     end
 
+    def form_product_update
+      if request.get?
+        @product = Product.find(params[:id])
+        logger.debug "get"
+      elsif request.put?
+        @product = Product.find(params[:id])
+        logger.debug "put"
+        @product.update(post_params)
+      elsif request.post?
+        create
+      end
+    end
+
+
     def create
       @product = Product.new(post_params)
       if @product.save
-        # session[:vendor_id] = @vendor.id
+      
         redirect_to "/vendor-tools"
       else
         render :new

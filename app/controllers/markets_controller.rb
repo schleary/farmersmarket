@@ -5,6 +5,19 @@ class MarketsController < ApplicationController
 
   end
 
+  def form_market_update
+    if request.get?
+      @market = Market.find(params[:id])
+      logger.debug "get"
+    elsif request.put?
+      @market = Market.find(params[:id])
+      logger.debug "put"
+      @market.update(post_params)
+    elsif request.post?
+      create
+    end
+  end
+
 
   def new
     @market = Market.new
@@ -45,7 +58,7 @@ class MarketsController < ApplicationController
   private
 
   def find_market
-    @sale = Market.find(params[:id])
+    @sale = Market.find_by(params[:id])
   end
 
   def post_params
@@ -57,5 +70,6 @@ class MarketsController < ApplicationController
       @market = Market.find(params[:id])
       @market.destroy
   end
+
 
 end

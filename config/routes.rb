@@ -20,22 +20,25 @@ Rails.application.routes.draw do
 
   #form-vendor-update.html.erb
   post "/vendor-tools/:id", to: "vendors#vendor_tools"
-  #THE FOLLOWING METHOD DOES NOT WORK:
-  put "/vendor/:id", to: "vendors#update", as: :vendor
+  #THE FOLLOWING METHOD DOES NOT WORK: (WHY?)
+  #get "/form-vendor-update/:id", to: "vendors#form_vendor_update", as: :vendor
+  put "/form-vendor-update/:id", to: "vendors#form_vendor_update", as: :vendor
   delete "/vendor/:id",  to: "vendors#destroy"
 
 
 
   #form-market.html.erb
-  post "/form-market/:id", to: "vendors#vendor_tools"
-
+  post "/form-market/:id", to: "markets#market_tools"
+  post "/form-market-update/:id", to: "markets#create", as: :vendor
+  put "/form-market-update/:id", to: "markets#form_market_update", as: :vendor
   delete "/market/:id",  to: "markets#destroy"
-  #
+
 
 
 
   #form-product.html.erb
-
+  post "/form-product/:id", to: "products#product_tools"
+  put "/product/:id", to: "products#update", as: :product
   delete "/product/:id",  to: "products#destroy"
 
 
