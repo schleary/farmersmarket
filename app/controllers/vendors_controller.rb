@@ -3,7 +3,7 @@ class VendorsController < ApplicationController
     def vendor_tools
       if params[:id]
         @vendor = Vendor.find(params[:id])
-  
+
       else
         @vendor = Vendor.find_by_name(params[:name])
       end
@@ -36,6 +36,7 @@ class VendorsController < ApplicationController
     def destroy
         @vendor = Vendor.find(params[:id])
         @vendor.destroy
+
     end
 
     #
