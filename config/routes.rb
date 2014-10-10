@@ -7,11 +7,12 @@ Rails.application.routes.draw do
   get "/",    to: 'index#index'
   # get "/vendor-tools",    to: "index#create"
 
-  get "/vendor-tools", to: "vendors#vendor_tools"
+  get "/sign-in", to: "vendors#vendor_tools"
+  get "/vendor-tools/:id", to: "vendors#vendor_tools"
   post "/vendor-tools",   to: "vendors#create"
   delete "/vendor/:id",  to: "vendors#destroy"
 
-  get "/form-vendor-update", to: "vendors#form_vendor_update"
+  get "/form-vendor-update/:id", to: "vendors#form_vendor_update"
   get "/form-market", to: "markets#edit"  #change hers
   get "/form-product", to: "vendors#product-settings"
 
