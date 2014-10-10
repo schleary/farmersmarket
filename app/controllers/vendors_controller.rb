@@ -3,7 +3,6 @@ class VendorsController < ApplicationController
     def vendor_tools
       if params[:id]
         @vendor = Vendor.find(params[:id])
-
       else
         @vendor = Vendor.find_by_name(params[:name])
       end
@@ -11,6 +10,13 @@ class VendorsController < ApplicationController
 
     def form_vendor_update
       @vendor = Vendor.find(params[:id])
+      if request.get?
+        logger.debug "get"
+      elsif request.put?
+        logger.debug "put"
+
+        @vendor.update(post_params)
+      end
     end
 
     def edit_market
@@ -36,7 +42,6 @@ class VendorsController < ApplicationController
     def destroy
         @vendor = Vendor.find(params[:id])
         @vendor.destroy
-
     end
 
     #

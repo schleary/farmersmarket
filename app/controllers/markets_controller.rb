@@ -1,22 +1,30 @@
 class MarketsController < ApplicationController
 
-
-  def form_market
-
-  end
-
-  def form_market_update
-    if request.get?
-      @market = Market.find(params[:id])
-      logger.debug "get"
-    elsif request.put?
-      @market = Market.find(params[:id])
-      logger.debug "put"
-      @market.update(post_params)
-    elsif request.post?
-      create
-    end
-  end
+  # def market_tools
+  #   if params[:id]
+  #     @market = Market.find(params[:id])
+  #   else
+  #     @market = Market.find_by_name(params[:name])
+  #   end
+  # end
+  #
+  # def form_market
+  #   if params[:id]
+  #     @market = Market.find(params[:id])
+  #   else
+  #     @market = Market.find_by_name(params[:name])
+  #   end
+  # end
+  #
+  # def form_market_update
+  #   @market = Market.find(params[:id])
+  #   if request.get?
+  #     logger.debug "get"
+  #   elsif request.put?
+  #     logger.debug "put"
+  #     @market.update(post_params)
+  #   end
+  # end
 
 
   def new
