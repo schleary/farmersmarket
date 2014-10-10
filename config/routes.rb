@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   post "/vendor-tools/:id", to: "vendors#vendor_tools"
   delete "/vendor/:id",  to: "vendors#destroy"
 
-
+  
   #
 
 
