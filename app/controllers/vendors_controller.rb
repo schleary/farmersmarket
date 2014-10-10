@@ -1,10 +1,22 @@
 class VendorsController < ApplicationController
 
     def vendor_tools
+      if params[:id]
+        @vendor = Vendor.find(params[:id])
+      else
+        @vendor = Vendor.find_by_name(params[:name])
+      end
     end
 
     def form_vendor_update
-      #update stuff
+
+       @vendor = Vendor.new(post_params)
+       if @vendor.save
+         # session[:vendor_id] = @vendor.id
+         redirect_to "/vendor-tools/#{@vendor.id}"
+       else
+         render :new
+       end
     end
 
     def edit_market
@@ -21,7 +33,7 @@ class VendorsController < ApplicationController
       @vendor = Vendor.new(post_params)
       if @vendor.save
         # session[:vendor_id] = @vendor.id
-        redirect_to "/vendor-tools"
+        redirect_to "/vendor-tools/#{@vendor.id}"
       else
         render :new
       end
