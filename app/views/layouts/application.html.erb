@@ -7,10 +7,30 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1>Farmers' Market Registry</h1>
+  <div class="container">
+    <header>
+      <h1>Farmers' Market Registry</h1>
+    </header>
+      <div class="navbar">
+        <nav>
+           <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/vendor-tools">Vendor Tools</a></li>
+              <ul>
+                <li><a href="/form-vendor-update/<%= @vendor.id %>">Vendor Settings</a></li>
+                <li><a href="/form-market/<%= @vendor.id %>">Market Settings</a></li>
+                <li><a href="/products/form-product/<%= @vendor.id %>">Product Settings</a></li>
+                <li><a href="/sales/form-vendor-update/<%= @vendor.id %>">Sales Settings</a></li>
+              </ul>
+            </ul>
+        </nav>
+    </div> <!-- navbar -->
+  </div><!-- container -->
 
+  <div class="container">
 
-<%= yield %>
+    <%= yield %>
 
+  </div><!-- container -->
 </body>
 </html>
