@@ -9,14 +9,6 @@ class VendorsController < ApplicationController
     end
 
     def form_vendor_update
-
-       @vendor = Vendor.new(post_params)
-       if @vendor.save
-         # session[:vendor_id] = @vendor.id
-         redirect_to "/vendor-tools/#{@vendor.id}"
-       else
-         render :new
-       end
     end
 
     def edit_market

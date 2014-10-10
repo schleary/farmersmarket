@@ -1,25 +1,38 @@
-<<<<<<< HEAD
-=======
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-
-  get "/",    to: 'index#index'
-  # get "/vendor-tools",    to: "index#create"
-
+  #index.html.erb
+  get "/",   to: 'index#index'
   get "/sign-in", to: "vendors#vendor_tools"
   get "/vendor-tools/:id", to: "vendors#vendor_tools"
   post "/vendor-tools",   to: "vendors#create"
-  delete "/vendor/:id",  to: "vendors#destroy"
 
+
+
+  #vendor-tools.html.erb
   get "/form-vendor-update/:id", to: "vendors#form_vendor_update"
-  get "/form-market", to: "markets#edit"  #change hers
-  get "/form-product", to: "vendors#product-settings"
+  get "/form-market", to: "markets#form_market"
+  get "/form-product", to: "products#form_product"
 
   # THIS IS NOT AN ACCEPTABLE NAME
   get "#", to: "sales#edit"   #change hers
+
+
+
+  #form-vendor-update.html.erb
+  # post "/vendor-tools/:id", to: "vendors#update"
+  delete "/vendor/:id",  to: "vendors#destroy"
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -83,4 +96,3 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 end
->>>>>>> 4c5217346492e57a1c54e933a3c6cb357d307f71
