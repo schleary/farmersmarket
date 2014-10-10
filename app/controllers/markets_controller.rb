@@ -2,7 +2,7 @@ class MarketsController < ApplicationController
 
 
   def form_market
-  
+
   end
 
 
@@ -52,5 +52,10 @@ class MarketsController < ApplicationController
     params.require(:market).permit(:name, :address, :city, :county, :state, :zip)
   end
 
+
+  def destroy
+      @market = Market.find(params[:id])
+      @market.destroy
+  end
 
 end

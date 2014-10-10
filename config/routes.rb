@@ -36,7 +36,7 @@ Rails.application.routes.draw do
 
   #form-product.html.erb
 
-  delete "/product/:id",  to: "product#destroy"
+  delete "/product/:id",  to: "products#destroy"
 
 
 
