@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
 
 
-  #vendor-tools.html.erb
+  #vendor-tools.html.erb - DON'T TOUCH!
   get "/form-vendor-update/:id", to: "vendors#form_vendor_update"
   get "/form-market", to: "markets#form_market"
   get "/form-product", to: "products#form_product"
@@ -20,14 +20,14 @@ Rails.application.routes.draw do
 
   #form-vendor-update.html.erb
   post "/vendor-tools/:id", to: "vendors#vendor_tools"
-  #get "/form-vendor-update/:id", to: "vendors#form_vendor_update", as: :vendor
   put "/form-vendor-update/:id", to: "vendors#form_vendor_update", as: :vendor
   delete "/vendor/:id",  to: "vendors#destroy"
 
 
 
   # #form-market.html.erb
-  post "/form-market/:id", to: "markets#market_tools"
+  post "/form-market", to: "markets#form_market", as: :market
+  post "form-market/:id", to: "markets#create", as: :market
 
 
   # get "/form-market-update/:id", to: "markets#market_tools"

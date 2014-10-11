@@ -1,5 +1,47 @@
 class MarketsController < ApplicationController
 
+  def index
+  end
+
+  def show
+  end
+
+  def new
+    @market = Market.new
+  end
+
+  def create
+    @market = Market.new(post_params)
+      if @market.save
+        # redirect_to "/vendor-tools"
+      else
+        render :new
+      end
+  end
+
+
+  def edit
+    find_market
+  end
+
+  def update
+    find_market
+    if @market.update(post_params)
+      # redirect_to "/vendor-tools"
+    else
+      render :edit
+    end
+  end
+
+  def delete
+    @market = Market.find(params[:id])
+    @market.destroy
+  end
+
+  def form_market
+  end
+
+
   # def market_tools
   #   if params[:id]
   #     @market = Market.find(params[:id])
@@ -26,20 +68,20 @@ class MarketsController < ApplicationController
   #   end
   # end
 
-
-  def new
-    @market = Market.new
-  end
-
-  def create
-    @market = Market.new(post_params)
-    if @market.save
-      # session[:vendor_id] = @vendor.id
-      redirect_to "/vendor-tools"
-    else
-      render :new
-    end
-  end
+  #
+  # def new
+  #   @market = Market.new
+  # end
+  #
+  # def create
+  #   @market = Market.new(post_params)
+  #   if @market.save
+  #     # session[:vendor_id] = @vendor.id
+  #     redirect_to "/vendor-tools"
+  #   else
+  #     render :new
+  #   end
+  # end
 
   #
   # def change
@@ -50,18 +92,7 @@ class MarketsController < ApplicationController
   #   @vendor = Vendor.find(session[:vendor_id])
   # end
 
-  def edit
-    find_market
-  end
 
-  def update
-    find_market
-    if @market.update(post_params)
-      redirect_to "/vendor-tools"
-    else
-      render :edit
-    end
-  end
 
   private
 
@@ -73,11 +104,6 @@ class MarketsController < ApplicationController
     params.require(:market).permit(:name, :address, :city, :county, :state, :zip)
   end
 
-
-  def destroy
-      @market = Market.find(params[:id])
-      @market.destroy
-  end
 
 
 end
