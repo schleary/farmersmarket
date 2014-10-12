@@ -1,15 +1,21 @@
 <h2>Welcome</h2>
 
-<form action="/sign-in" method="GET" accept-charset="utf-8">
+<% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "flash #{key}" %>
+<% end %>
+
+</br>
+
+<form action="/sign-in" method="POST" accept-charset="utf-8">
   Vendor Sign In:<br />
   <label for="name"> Vendor Name </label><input type="text" name="name"><br />
   <p><input type="submit" value="Sign In"></p>
 </form>
 
-<form action="/vendor-tools" method="POST" accept-charset="utf-8">
+<form action="/form-vendor" method="POST" accept-charset="utf-8">
   Vendor Sign Up<br />
-  <label for="name"> Vendor Name </label><input type="text" name="vendor[name]" value= "" ><br />
-  <label for="employees"> Employees </label><input type="text" name="vendor[employees]" value="" ><br />
-  <label for="market_id"> Market ID </label><input type="text" name="vendor[market_id]" value="" ><br />
+  <label for="name"> Vendor Name </label><input type="text" name="vendor[name]" value= "<%= @vendor.name %>" ><br />
+  <label for="employees"> Employees </label><input type="text" name="vendor[employees]" value="<%= @vendor.employees %>" ><br />
+  <label for="market_id"> Market ID </label><input type="text" name="vendor[market_id]" value="<%= @vendor.market_id %>" ><br />
   <p><input type="submit" value="Sign Up"></p>
 </form>

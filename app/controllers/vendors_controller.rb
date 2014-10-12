@@ -1,76 +1,46 @@
 class VendorsController < ApplicationController
 
-    def vendor_tools
-      if params[:id]
-        @vendor = Vendor.find(params[:id])
-      else
-        @vendor = Vendor.find_by_name(params[:name])
-      end
-    end
-
-    def form_vendor_update
-      @vendor = Vendor.find(params[:id])
-      if request.get?
-        logger.debug "get"
-      elsif request.put?
-        logger.debug "put"
-
-        @vendor.update(post_params)
-      end
-    end
-
-    def edit_market
-    end
-
-    def product_settings
-    end
-
-    def new
-      @vendor = Vendor.new
+    def index
+      @vendors = Vendor.all
     end
 
     def create
       @vendor = Vendor.new(post_params)
       if @vendor.save
-        # session[:vendor_id] = @vendor.id
-        redirect_to "/vendor-tools/#{@vendor.id}"
+        session["vendor_id"] = @vendor.id
+        redirect_to "/", :notice => "You've created a new vendor. You are now signed in."
       else
-        render :new
+        redirect_to "/", :error => "There was an error creating the vendor you passed in."
       end
     end
 
     def destroy
-        @vendor = Vendor.find(params[:id])
+        @vendor = Vendor.find_by_id(session["vendor_id"])
         @vendor.destroy
-    end
 
-    #
-    # def change
-    #   add_column :name, :employees, :market_id
-    # end
-    #
-    def show
-      @vendor = Vendor.find(session[:id])
+        session["vendor_id"] = nil
+
+        redirect_to "/", :notice => "You've successfully deleted your current vendor."
     end
 
     def edit
-      find_vendor
+      @vendor = Vendor.find_by_id(session["vendor_id"])
     end
 
     def update
-      find_vendor
+      @vendor = Vendor.find_by_id(session["vendor_id"])
       if @vendor.update(post_params)
-        redirect_to "/vendor-tools"
+        redirect_to "/", :notice => "You have successfully edited your vendor information."
       else
-        render :edit
+        render :edit, :error => "There was an error editing your vendor information."
       end
     end
 
     private
 
-    def find_vendor
-      @vendor = Vendor.find(params[:id])
-    end
+    # def find_vendor
+    #   @vendor = Vendor.find(params[:id])
+    # end
 
     def post_params
       params.require(:vendor).permit(:name, :employees, :market_id)

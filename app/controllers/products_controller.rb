@@ -6,37 +6,13 @@ class ProductsController < ApplicationController
       @product = Product.new
     end
 
-    def form_product_update
-      if request.get?
-        @product = Product.find(params[:id])
-        logger.debug "get"
-      elsif request.put?
-        @product = Product.find(params[:id])
-        logger.debug "put"
-        @product.update(post_params)
-      elsif request.post?
-        create
-      end
-    end
-
-
     def create
       @product = Product.new(post_params)
       if @product.save
-      
-        redirect_to "/vendor-tools"
+        redirect_to "/", :notice => "You've created a product!"
       else
-        render :new
+        render :new, :error => "There was an error creating the product."
       end
-    end
-
-    #
-    # def change
-    #   add_column :name, :employees, :market_id
-    # end
-    #
-    def show
-      @product = Product.find(session[:id])
     end
 
     def edit
@@ -46,10 +22,16 @@ class ProductsController < ApplicationController
     def update
       find_product
       if @product.update(post_params)
-        redirect_to "/vendor-tools"
+        # CHANGE THIS STUFF!
+        redirect_to "/"
       else
         render :edit
       end
+    end
+
+    def destroy
+        @product = Product.find(params[:id])
+        @product.destroy
     end
 
     private
@@ -59,13 +41,7 @@ class ProductsController < ApplicationController
     end
 
     def post_params
-      params.require(:vendor).permit(:name, :employees, :market_id)
-    end
-
-
-    def destroy
-        @product = Product.find(params[:id])
-        @product.destroy
+      params.require(:product).permit(:name, :vendor_id)
     end
 
 end
