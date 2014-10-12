@@ -1,0 +1,6 @@
+<h3>Create Product Form</h3>
+<form action="<%= @product.id %>" method="POST" accept-charset="utf-8">
+  <label for="name"> Market Information </label><input type="text" name="product[name]" value= "<%= @product.name %>" ><br />
+  <label for="vendor_id"> Vendor ID </label><input type="text" name="product[vendor_id]" value= "<%= @product.vendor_id %>" ><br />
+  <p><input type="submit" value="Submit"></p>
+</form>

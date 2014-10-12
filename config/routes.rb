@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   #vendor-tools.html.erb - DON'T TOUCH!
   get "/form-vendor-update/:id", to: "vendors#form_vendor_update"
-  get "/form-market", to: "markets#form_market"
+  # get "/form-market", to: "markets#form_market"
   get "/form-product", to: "products#form_product"
 
   # THIS IS NOT AN ACCEPTABLE NAME
@@ -24,11 +24,36 @@ Rails.application.routes.draw do
   delete "/vendor/:id",  to: "vendors#destroy"
 
 
+  #GOOD
+  #form-market.html.erb
+  #create new
+  get "form-market", to: "markets#new"
+  post "form-market", to: "markets#create"
+  # update
+  get "form-market/:id/edit", to: "markets#edit"
+  put "form-market/:id/update", to: "markets#update"
 
+
+  #
+  # #GOOD
   # #form-market.html.erb
-  post "/form-market", to: "markets#form_market", as: :market
-  post "form-market/:id", to: "markets#create", as: :market
+  # #create new
+  # get "form-market", to: "products#new"
+  # post "form-market", to: "products#create"
+  # # update
+  # get "form-market/:id/edit", to: "products#edit"
+  # put "form-market/:id/update", to: "products#update"
+  #
 
+
+
+  #
+  #
+  #
+  #
+  # post "/form-market", to: "markets#form_market", as: :market
+  # post "form-market/:id", to: "markets#create", as: :market
+  #
 
   # get "/form-market-update/:id", to: "markets#market_tools"
   # post "/form-market-update",   to: "markets#create"

@@ -1,7 +1,7 @@
 <h3>Create/Edit Market Form</h3>
 
 Create:
-<form action="<%=@market.id %>" method="POST" accept-charset="utf-8">
+<form action="/form-market" method="POST" accept-charset="utf-8">
   <label for="name"> Market Information </label><br />
   <label for="name"> Market Name </label><input type="text" name="market[market_name]" value= "<%= @market.name %>" ><br />
   <label for="address"> Address </label><input type="text" name="market[address]" value="<%= @market.address %>" ><br />
@@ -12,9 +12,9 @@ Create:
   <p><input type="submit" value="Submit"></p>
 </form>
 
-Edit:
+<!-- Edit:
 <form action="<%=@market.id %>" method="POST" accept-charset="utf-8">
-  <input type="hidden" name="_method" value="PUT"> 
+  <input type="hidden" name="_method" value="PUT">
   <label for="name"> Market Information </label><br />
   <label for="name"> Market Name </label><input type="text" name="market[market_name]" value= "<%= @market.name %>" ><br />
   <label for="address"> Address </label><input type="text" name="market[address]" value="<%= @market.address %>" ><br />
@@ -23,4 +23,4 @@ Edit:
   <label for="state"> State </label><input type="text" name="market[state]" value="<%= @market.state %>" ><br />
   <label for="zip"> Zip </label><input type="number" name="market[zip]" value="<%= @market.zip %>" ><br />
   <p><input type="submit" value="Submit"></p>
-</form>
+</form> -->

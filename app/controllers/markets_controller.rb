@@ -7,13 +7,17 @@ class MarketsController < ApplicationController
   end
 
   def new
+    puts "IN new"
     @market = Market.new
   end
 
   def create
     @market = Market.new(post_params)
+      puts params.inspect
+      puts "we're hre"
       if @market.save
-        # redirect_to "/vendor-tools"
+        # CHANGE THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        redirect_to "/"
       else
         render :new
       end
@@ -22,12 +26,15 @@ class MarketsController < ApplicationController
 
   def edit
     find_market
+
+
   end
 
   def update
     find_market
     if @market.update(post_params)
-      # redirect_to "/vendor-tools"
+      # CHANGE THIS STUFF!
+      redirect_to "/"
     else
       render :edit
     end
@@ -38,8 +45,8 @@ class MarketsController < ApplicationController
     @market.destroy
   end
 
-  def form_market
-  end
+  # def form_market
+  # end
 
 
   # def market_tools
@@ -97,7 +104,7 @@ class MarketsController < ApplicationController
   private
 
   def find_market
-    @sale = Market.find_by(params[:id])
+    @market = Market.find(params[:id])
   end
 
   def post_params
