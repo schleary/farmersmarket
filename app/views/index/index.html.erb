@@ -16,6 +16,7 @@
   Vendor Sign Up<br />
   <label for="name"> Vendor Name </label><input type="text" name="vendor[name]" value= "<%= @vendor.name %>" ><br />
   <label for="employees"> Employees </label><input type="text" name="vendor[employees]" value="<%= @vendor.employees %>" ><br />
-  <label for="market_id"> Market ID </label><input type="text" name="vendor[market_id]" value="<%= @vendor.market_id %>" ><br />
+  <!-- <label for="market_id"> Market ID </label><input type="text" name="vendor[market_id]" value="<%= @vendor.market_id %>" ><br /> -->
+  <label for="market_id">Market ID <%= collection_select(:vendor, :market_id, @markets, :id, :name, {:prompt => true}) %>
   <p><input type="submit" value="Sign Up"></p>
 </form>

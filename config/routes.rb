@@ -15,13 +15,20 @@ Rails.application.routes.draw do
   put "form-vendor", to: "vendors#update"
   delete "form-vendor",  to: "vendors#destroy"
 
+
+
+
+
   # Market info
   #create new
   get "form-market", to: "markets#new"
   post "form-market", to: "markets#create"
   # update
-  get "form-market/:id/edit", to: "markets#edit"
+  get "market/:id/edit", to: "markets#edit"
   put "form-market/:id/update", to: "markets#update"
+
+
+
 
 
   # Product info

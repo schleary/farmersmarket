@@ -3,6 +3,7 @@ class IndexController < ApplicationController
   def index
    if session["vendor_id"] == nil
      @vendor = Vendor.new
+     @markets = Market.all
    else
      @vendor_id = session["vendor_id"]
      @vendor = Vendor.find_by_id(@vendor_id)
