@@ -1,0 +1,9 @@
+<% @sales.each do |sale| %>
+  <%= content_tag :div%>
+    <%= content_tag :span, sale.amount%>
+
+      <%= link_to 'Delete', "/sale/ #{sale.id}", method: :delete %>
+      <%= link_to 'Edit', "/sale/#{sale.id}/edit" %>
+
+
+<% end %>

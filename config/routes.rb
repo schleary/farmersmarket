@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "/sign-out",   to: 'index#sign_out'
 
   # THIS IS NOT AN ACCEPTABLE path
-  get "#", to: "sales#edit"
+  # get "form-sale", to: "sales#edit"
 
   # Vendor info
   #create
@@ -25,7 +25,6 @@ Rails.application.routes.draw do
   get "market/:id/edit", to: "markets#edit"
   put "form-market/:id/update", to: "markets#update"
 
-
   # Product info
   #create new
   get "form-product", to: "products#new"
@@ -43,6 +42,9 @@ Rails.application.routes.draw do
   post "form-sale", to: "sales#create"
   # update
   get "sale/:id/edit", to: "sales#edit"
+  get "sale", to: "sales#index"
   put "form-sale/:id/update", to: "sales#update"
+  delete "sale/:id",  to: "sales#destroy"
+
 
 end

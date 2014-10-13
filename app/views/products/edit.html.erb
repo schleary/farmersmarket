@@ -2,9 +2,7 @@
 
 <form action="/form-product/<%= @product.id %>/update" method="POST" accept-charset="utf-8">
   <input type="hidden" name="_method" value="PUT">
-
   <label for="name"> Product Name  </label><input type="text" name="product[name]" value= "<%= @product.name %>" ><br />
-
   <p><input type="submit" value="Submit"></p>
 </form>
 
