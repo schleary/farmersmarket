@@ -14,3 +14,7 @@ a{
   color: gray;
   padding-left: 2%;
 }
+
+a:hover{
+  color: green;
+}
