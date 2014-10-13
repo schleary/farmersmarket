@@ -16,9 +16,6 @@ Rails.application.routes.draw do
   delete "form-vendor",  to: "vendors#destroy"
 
 
-
-
-
   # Market info
   #create new
   get "form-market", to: "markets#new"
@@ -28,15 +25,23 @@ Rails.application.routes.draw do
   put "form-market/:id/update", to: "markets#update"
 
 
-
-
-
   # Product info
   #create new
   get "form-product", to: "products#new"
   post "form-product", to: "products#create"
   # update
-  get "form-product/:id/edit", to: "products#edit"
+  get "product/:id/edit", to: "products#edit"
+  get "product", to: "products#index"
   put "form-product/:id/update", to: "products#update"
+  delete "product/:id",  to: "products#destroy"
+
+
+  # Sale info
+  #create new
+  get "form-sale", to: "sales#new"
+  post "form-sale", to: "sales#create"
+  # update
+  get "sale/:id/edit", to: "sales#edit"
+  put "form-sale/:id/update", to: "sales#update"
 
 end

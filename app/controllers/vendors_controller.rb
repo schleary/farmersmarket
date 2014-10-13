@@ -26,6 +26,8 @@ class VendorsController < ApplicationController
     def edit
       @vendor = Vendor.find_by_id(session["vendor_id"])
       @markets = Market.all
+      @products = Product.all
+      @sales = Sale.all
     end
 
     def update

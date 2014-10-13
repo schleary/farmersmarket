@@ -1,7 +1,8 @@
 <h3>Create Product Form</h3>
 
 <form action="/form-product" method="POST" accept-charset="utf-8">
+
   <label for="name"> Product Name </label><input type="text" name="product[name]" value= "<%= @product.name %>" ><br />
-  <label for="vendor_id"> Vendor ID </label><input type="text" name="product[vendor_id]" value= "<%= @product.vendor_id %>" ><br />
+  <!-- In retrospect, perhaps this should be auto-shown. Maybe remove the vendor id from here, and .rb, routes, etc. -->
   <p><input type="submit" value="Submit"></p>
 </form>

@@ -20,7 +20,6 @@ class MarketsController < ApplicationController
   def update
     find_market
     if @market.update(post_params)
-      # CHANGE THIS STUFF!
       redirect_to "/"
     else
       render :edit

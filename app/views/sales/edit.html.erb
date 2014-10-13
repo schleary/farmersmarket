@@ -1,0 +1,13 @@
+h3>Edit Sale Form</h3>
+
+<form action="/form-sale/<%= @sale.id %>/update" method="POST" accept-charset="utf-8">
+  <input type="hidden" name="_method" value="PUT">
+
+  <label for="amount"> Sale Amount </label><input type="integer" name="sale[amount]" value= "<%= @sale.amount %>" ><br />
+  <label for="purchase_time"> Purchase Time </label><input type="date_time" name="sale[purchase_time]" value="<%= @sale.purchase_time %>" ><br />
+  <label for="vendor_id"> Vendor ID </label><input type="integer" name="sale[vendor_id]" value="<%= @sale.vendor_id %>" ><br />
+  <label for="product_id"> Product ID </label><input type="integer" name="sale[product_id]" value="<%= @sale.product_id %>" ><br />
+  <p><input type="submit" value="Submit"></p>
+</form>
+
+<%= link_to 'Delete', "/sale/#{@sale.id}", method: :delete %>

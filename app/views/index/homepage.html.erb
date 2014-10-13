@@ -1,15 +1,20 @@
-<h2>Welcome <%= @vendor.name %>!</h2>
+<h2>Welcome, <%= @vendor.name %>!</h2>
 
 <% flash.each do |key, value| %>
   <%= content_tag :div, value, class: "flash #{key}" %>
 <% end %>
 
 </br>
-
 <a href= "/form-vendor"> Edit Your Vendor Information</a><br/>
+<br>
+
 <a href="/form-market">Create A Market</a> <br/>
-
 <a href="/market/<%= @vendor.market_id %>/edit">Edit Your Market</a><br/>
+<br>
 
-<a href="/form-product">Product Settings</a><br/>
-<a href="#">Create/Edit Sales</a>
+<a href="/form-product">Add A Product</a><br/>
+<a href="/product">Edit A Product</a><br/>
+<br>
+
+<a href="/form-sale">Create A Sale</a> <br/>
+<a href="/sale/<%= @vendor.id %>/edit">Edit Your Sale</a><br/>

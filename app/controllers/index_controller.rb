@@ -4,6 +4,8 @@ class IndexController < ApplicationController
    if session["vendor_id"] == nil
      @vendor = Vendor.new
      @markets = Market.all
+     @products = Product.all
+     @sales = Sale.all
    else
      @vendor_id = session["vendor_id"]
      @vendor = Vendor.find_by_id(@vendor_id)

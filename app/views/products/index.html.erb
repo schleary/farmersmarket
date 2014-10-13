@@ -1,0 +1,9 @@
+<% @products.each do |product| %>
+  <%= content_tag :div%>
+    <%= content_tag :span, product.name%>
+
+      <%= link_to 'Delete', "/product/ #{product.id}", method: :delete %>
+      <%= link_to 'Edit', "/product/#{product.id}/edit" %>
+
+
+<% end %>
