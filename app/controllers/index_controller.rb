@@ -21,8 +21,16 @@ class IndexController < ApplicationController
     else
       flash[:error] = "Sorry we could not find the vendor '" + params["name"] + "'. Please try again."
       @vendor = Vendor.new
+      @markets = Market.all
+      @products = Product.all
+      @sales = Sale.all
       render :index
     end
+  end
+
+  def sign_out
+      session["vendor_id"] = nil
+      redirect_to "/", :notice => "You have signed out."
   end
 
 end

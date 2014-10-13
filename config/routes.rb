@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   #index.html.erb
   get "/",   to: 'index#index'
   post "/sign-in", to: "index#sign_in"
+  get "/sign-out",   to: 'index#sign_out'
 
   # THIS IS NOT AN ACCEPTABLE path
   get "#", to: "sales#edit"
