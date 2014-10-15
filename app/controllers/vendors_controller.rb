@@ -15,12 +15,10 @@ class VendorsController < ApplicationController
     end
 
     def destroy
-        @vendor = Vendor.find_by_id(session["vendor_id"])
-        @vendor.destroy
-
-        session["vendor_id"] = nil
-
-        redirect_to "/", :notice => "You've successfully deleted your current vendor."
+      @vendor = Vendor.find_by_id(session["vendor_id"])
+      @vendor.destroy
+      session["vendor_id"] = nil
+      redirect_to "/", :notice => "You've successfully deleted your current vendor."
     end
 
     def edit
